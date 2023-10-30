@@ -1,0 +1,84 @@
+
+.top-field{
+    display: flex;
+    justify-content: space-between;
+}
+.breadcrumb p{
+    font-weight: bold;
+    color: grey;
+    margin: 5px 10px;
+    font-size: 17px;
+}
+.content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.no-content{
+    text-align: center;
+    line-height: 20rem;
+}
+.no-content p{
+    font-size: 25px;
+    color: #789;
+}
+.header p{
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0px;
+    text-transform: uppercase;
+}
+.form{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 1px 1px 6px 1px #a09898;
+    background: blanchedalmond;
+}
+.form-groups{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+.form-group{
+    display: flex;
+    width: 100%;
+    /* margin: 10px 0px; */
+    padding: 10px;
+    align-items: center;
+}
+.form-group label{
+    width: 25%;
+}
+.form-group textarea{
+    width: 75%;
+}
+.btn-container{
+    width: 100%;
+}
+.btn-container .submit-btn{
+    background-color: #0d6efd;
+    border-radius: 3px;
+    float: right;
+    margin: 10px;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+}
+.back-btn{
+    background-color: #0d6efd;
+    border-radius: 3px;
+    float: right;
+    margin: 10px;
+    color: white;
+    border: none;
+    padding: 5px 14px;
+}
+.content .table-container{
+    width: 60%;
+}
+.content .table-container table thead tr th{
+    text-align: center;
+}

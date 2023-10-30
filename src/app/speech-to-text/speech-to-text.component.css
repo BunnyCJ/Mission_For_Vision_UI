@@ -1,0 +1,39 @@
+ .container{
+    background: blanchedalmond;
+    margin: 0px;
+    max-width: 100%;
+    width: 100%;
+}
+.content{
+    display: flex;
+    background-color: antiquewhite;
+    width: 100%;
+}
+.img-container{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    margin: 12px 0px;
+}
+.img-fluid{
+    height: 87vh;
+}
+.form-container{
+    display: flex;
+    width: 50%;
+    margin-top: 10px;
+}
+ .card-body .btn-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.header-text{
+    text-transform: uppercase;
+    text-align: center;
+}
+.submit-btn-container{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}

@@ -1,0 +1,53 @@
+<div class="header" *ngIf="userDetails?.name">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/home">MISSION FOR VISION</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <!-- <li class="nav-item active">
+              <a class="nav-link" routerLink="home">HOME</a>
+            </li> -->
+            <!-- <li class="nav-item dropdown"  (mouseenter)="isAdmin = true" (mouseleave)="isAdmin = false">
+                <a class="nav-link dropdown-toggle" role="button" (click)="isAdmin = !isAdmin" aria-expanded="false">ADMIN</a>
+                <ul class="dropdown-menu" *ngIf="isAdmin">
+                  <li><a class="dropdown-item" routerLink="/admin/student">STUDENT</a></li>
+                  <li><a class="dropdown-item" routerLink="/admin/user">USER</a></li>
+                  <li><a class="dropdown-item" routerLink="/admin/">QUESTION</a></li>
+                </ul>
+            </li> -->
+              <li class="nav-item profile">
+                 <span>Welcome, {{userDetails?.name}}</span>
+                  <a class="nav-link dropdown-toggle" role="button" (click)="isAdmin = !isAdmin" aria-expanded="false">
+                    <img src="../../../assets/images/blank-profile-picture-973460.svg" alt="">
+                  </a>
+                  <div class="profile-details" *ngIf="isAdmin" (mouseleave)="isAdmin = false">
+                    <div class="form-group top-field">
+                      <img src="../../../assets/images/blank-profile-picture-973460.svg" alt="">
+                      <label class="userName">{{userDetails.name}}</label>
+                      <label class="userType">{{userDetails.isStudent? 'Student': 'Teacher'}}</label>
+                    </div>
+                    <hr>
+                    <div class="form-group" *ngIf="userDetails?.isStudent">
+                      <label>{{userDetails.email}}</label>
+                      <label></label>
+                    </div>
+                    <div class="form-group" *ngIf="!userDetails?.isStudent">
+                      <label>{{userDetails?.email}}</label>
+                    </div>
+                    <div class="logout">
+                      <a class="nav-link" (click)="logout()">Logout</a>
+                    </div>
+                  </div>
+                
+              </li>
+          </ul>
+          <!-- <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form> -->
+        </div>
+      </nav>
+</div>

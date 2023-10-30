@@ -1,0 +1,319 @@
+<div class="dashboard">
+    <div class="top-field">
+        <div class="section">
+            <p>Dashboard</p>
+        </div>
+        <!-- <div class="userName">
+            <p>Welcome, Prem</p>
+        </div> -->
+    </div>
+    <div class="content" *ngIf="userDetails?.isStudent">
+        <div class="cont-containers">
+            <p>{{overallTestCount}}</p>
+            <p>Over All Test </p>
+        </div>
+        <div class="cont-containers">
+            <p>{{avg_score}}</p>
+            <p>Average Test Scores</p>
+        </div>
+        <div class="cont-containers" (click)="navigatetoTest()">
+            <p>{{uncompletedTestCount}}</p>
+            <p>Pending Tests</p>
+            <p class="notes">(*.):click to view</p>
+        </div>
+        <div class="cont-containers" data-bs-toggle="modal" data-bs-target=".completed_modal">
+            <p>{{completedTestCount}}</p>
+            <p>Completed Tests</p>
+            <p class="notes">(*.):click to view</p>
+        </div>
+    </div>
+    <div class="content" *ngIf="!userDetails?.isStudent">
+        <div class="cont-containers" (click)="navigateToStudents()">
+            <p>{{studentCount}}</p>
+            <p>No of Students</p>
+            <p class="notes">(*.):click to view</p>
+        </div>
+        <div class="cont-containers" data-bs-toggle="modal" data-bs-target=".view_modal">
+            <p>{{testDataCount}}</p>
+            <p>View Tests</p>
+            <p class="notes">(*.):click to view</p>
+        </div>
+        <div class="cont-containers" (click)="navigateToCreateTest()">
+            <p>{{reviewTestCount}}</p>
+            <p>Review Tests</p>
+            <p class="notes">(*.):click to view</p>
+        </div>
+        <div class="cont-containers" data-bs-toggle="modal" data-bs-target=".addTest_Modal" (click)="startListening()">
+            <p>Create Tests</p>
+            <p class="notes">(*.):click to create</p>
+        </div>
+    </div>
+</div>
+     <!-- Overall Modal -->
+     <div class="modal fade overall_modal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true" data-bs-autohide="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p>Overall Test Attended</p>
+                    <button type="button" class="btn-close btn-close-white shadow-none " data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-container">
+                        <table class="table table-bordered" >
+                            <thead>
+                                <tr>
+                                    <th>SNO</th>
+                                    <th>TEST NAME</th>
+                                    <th>SUBJECT</th>
+                                    <th>SCORE</th>
+                                    <th>ATTENDED AT</th>
+                                    <th>VERIFIED BY</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1.</td>
+                                    <td>Revision 1</td>
+                                    <td>Computer Science</td>
+                                    <td>78</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- AverageScore Modal -->
+     <div class="modal fade averageScore_modal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true" data-bs-autohide="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p>Average Test Score</p>
+                    <button type="button" class="btn-close btn-close-white shadow-none " data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Academic period :</label><span> Q1</span>
+                    </div>
+                    <div class="form-group">
+                        <label>No of test attended : </label><span> 1</span>
+                    </div>
+                    <div class="form-group">
+                        <label>No of scores obtained : </label><span> 1</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Average score : </label><span> 1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Pending Test Modal -->
+    <div class="modal fade pendingTest_modal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true" data-bs-autohide="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p>Pending Test</p>
+                    <button type="button" class="btn-close btn-close-white shadow-none " data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-container">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>SNO</th>
+                                    <th>TEST NAME</th>
+                                    <th>SUBJECT</th>
+                                    <th>ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let d of testDetails; let i = index">
+                                    <td>{{i+1}}.</td>
+                                    <td>{{d.testName}}</td>
+                                    <td>{{d.subject}}</td>
+                                    <td><a (click)="setLaunchTestSessionStorage(d)">LAUNCH</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Pending Test Modal -->
+    <div class="modal fade completed_modal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true" data-bs-autohide="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <p>Completed Test</p>
+                        <button type="button" class="btn-close btn-close-white shadow-none " data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-container">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>SNO</th>
+                                        <th>TEST NAME</th>
+                                        <th>SUBJECT</th>
+                                        <th>SCORE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let data of completedTestList; let i = index">
+                                        <td>{{i+1}}.</td>
+                                        <td>{{data.testName}}</td>
+                                        <td>{{data.subject}}</td>
+                                        <td>{{data.score}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <!-- Number of students Modal -->
+    <div class="modal fade students_modal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true" data-bs-autohide="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <p>Students</p>
+                        <button type="button" class="btn-close btn-close-white shadow-none " data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-container">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>SNO</th>
+                                        <th>STUDENT NAME</th>
+                                        <th>REGISTER NUMBER</th>
+                                        <th>ACTION</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1.</td>
+                                        <td>Revision 1</td>
+                                        <td>Computer Science</td>
+                                        <td><a href="/test" (click)="setViewSessionStorage()">VIEW</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <!-- Create Test of students Modal -->
+    <div class="modal fade addTest_Modal" id="addTest_Modal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true" data-bs-autohide="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="testModalLabel">Add Test
+                    </h1>
+                    <button type="button" class="btn-close btn-close-white shadow-none " data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="testName">Test Name</label>
+                        <input type="search" class="form-control shadow-none" id="testName" [(ngModel)]="addTestName" placeholder="Enter TestName">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="search" class="form-control shadow-none" id="subject" [(ngModel)]="addSubject" placeholder="Enter subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="question">Question</label>
+                        <textarea type="search" class="form-control shadow-none" id="question" [(ngModel)]="addQuestion" placeholder="Enter question"></textarea>
+                    </div>
+                 <div class="btn-container">
+                    <button class="add-btn" (click)="createQuestion()">Add</button>
+                 </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+         <!-- View Test Modal -->
+    <div class="modal fade view_modal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true" data-bs-autohide="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <p>Test Details</p>
+                        <button type="button" class="btn-close btn-close-white shadow-none " data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-container">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>SNO</th>
+                                        <th>TEST NAME</th>
+                                        <th>SUBJECT</th>
+                                        <th>CREATED BY</th>
+                                        <th>QUESTIONS</th>
+                                        <th>ACTIONS</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let data of testData; let i = index">
+                                        <td>{{i+1}}.</td>
+                                        <td>{{data.testName}}</td>
+                                        <td>{{data.subject}}</td>
+                                        <td>{{data.createdBy}}</td>
+                                        <td>
+                                            <ng-container *ngFor="let t of data.test; let  j= index">
+                                                    <li>{{j+1}}. {{t.question}}</li>
+                                            </ng-container>
+                                        </td>
+                                        <td>
+                                            <a data-bs-toggle="modal" data-bs-target=".deleteTest_Modal" (click)="openDeleteTestModal(data)"><i class="fa-solid fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="modal fade deleteTest_Modal" id="deleteStudent_Modal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true" data-bs-autohide="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="testModalLabel">Delete Student
+                    </h1>
+                    <button type="button" class="btn-close btn-close-white shadow-none " data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                   <p>Are you sure want to delete this Test?</p>
+                 <div class="btn-container">
+                    <button class="delete-btn" (click)="deleteTest()" data-bs-dismiss="modal">Yes, Delete</button>
+                    <button class="cancel-btn" data-bs-dismiss="modal">Cancel</button>
+                 </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+

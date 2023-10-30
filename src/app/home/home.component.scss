@@ -1,0 +1,25 @@
+.homepage{
+    display: flex;
+    // padding: 65px 0 25px;
+    // height: 100vh;
+    overflow: auto;
+    .voice-recognition-container{
+        margin: 100px;
+    }
+    .form{
+        width:  40%;
+        padding: 10px;
+        box-shadow: 1px 1px 6px 1px #a09898;
+        margin: 10px 0px;
+        height: fit-content;
+        .form-group{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            margin: 5px 0px;
+            label{
+                width: 40%;
+            }
+        }
+    }
+}

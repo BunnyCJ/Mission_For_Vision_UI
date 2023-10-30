@@ -1,0 +1,56 @@
+<div class="test">
+  <div class="top-field">
+    <div class="breadcrumb">
+      <p *ngIf="!isViewTest">Test</p>
+      <p *ngIf="isViewTest">Pending Tests</p>
+    </div>
+    <div class="back-btn-container">
+      <button class="back-btn" *ngIf="isViewTest" (click)="back()">Back</button>
+      <button class="back-btn" *ngIf="!isViewTest" (click)="isViewTest= true">Back</button>
+    </div>
+  </div>
+
+   <!-- Pending Test content -->
+   <div class="content" *ngIf="isViewTest">
+    <div class="no-content" *ngIf="filteredTestData?.length == 0">
+      <p>No Test Available</p>
+    </div>
+    <div class="table-container" *ngIf="filteredTestData?.length > 0">
+      <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>SNO</th>
+                <th>TEST NAME</th>
+                <th>SUBJECT</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let d of filteredTestData; let i = index">
+                <td>{{i+1}}.</td>
+                <td>{{d.testName}}</td>
+                <td>{{d.subject}}</td>
+                <td><a (click)="launchTest(d)">LAUNCH</a></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    </div>
+
+  <!-- Launch Test content -->
+  <div class="content" *ngIf="!isViewTest">
+    <div class="form">
+      <div class="header">
+        <p>{{launchTestData.testName}} &nbsp; {{launchTestData.subject}}</p>
+      </div>
+        <div class="form-group" *ngFor="let q of launchTestData.test; let i = index">
+          <label for="qn">{{i+1}}. &nbsp; {{q.question}}</label>
+          <textarea name="answer" id="qn" cols="30" rows="2" class="form-control" [(ngModel)]="q.answer"></textarea>
+        </div>
+        <div class="btn-container">
+          <button class="submit-btn" (click)="submitAnswer()">Submit</button>
+        </div>
+    </div>
+  </div>
+ 
+</div>

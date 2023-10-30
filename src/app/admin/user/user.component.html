@@ -1,0 +1,102 @@
+<div class="user">
+    <div class="top-field">
+        <div class="breadcrumbs">
+            <p>User</p>
+        </div>
+        <div class="btn-container">
+            <button class="add-btn" data-bs-toggle="modal" data-bs-target=".addUser_Modal">Add New User</button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="table-container">
+            <table class="table-bordered table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email ID</th>
+                        <th>User ID</th>
+                        <th>Created On</th>
+                        <th>Action</th>
+                        <th>Password Reset</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Test</td>
+                        <td>Tesing@email.com</td>
+                        <td>Testing</td>
+                        <td></td>
+                        <td>
+                            <a data-bs-toggle="modal" data-bs-target=".updateUser_Modal"> <i class="fa-solid fa-pen"></i></a>
+                            <i class="fa-solid fa-trash"></i>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+       
+    </div>
+</div>
+<div class="modal fade addUser_Modal" id="addUser_Modal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true" data-bs-autohide="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="testModalLabel">Add User
+                </h1>
+                <button type="button" class="btn-close btn-close-white shadow-none " data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="search" class="form-control shadow-none" id="name" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label for="email">E mail</label>
+                    <input type="email" class="form-control shadow-none" id="email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="userId">User ID</label>
+                    <input type="search" class="form-control shadow-none" id="userId" placeholder="Enter userId">
+                </div>
+             <div class="btn-container">
+                <button class="add-btn">Add</button>
+             </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade updateUser_Modal" id="updateUser_Modal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true" data-bs-autohide="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="testModalLabel">Update User
+                </h1>
+                <button type="button" class="btn-close btn-close-white shadow-none " data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="search" class="form-control shadow-none" id="name" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label for="email">E mail</label>
+                    <input type="email" class="form-control shadow-none" id="email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="userId">User ID</label>
+                    <input type="search" class="form-control shadow-none" id="userId" placeholder="Enter userId">
+                </div>
+             <div class="btn-container">
+                <button class="add-btn">Update</button>
+             </div>
+
+            </div>
+        </div>
+    </div>
+</div>

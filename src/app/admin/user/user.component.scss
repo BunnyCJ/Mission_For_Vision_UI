@@ -1,0 +1,146 @@
+.user{
+    .top-field{
+        display: flex;
+        justify-content: space-between;
+        .breadcrumbs{
+            p{
+                margin-bottom: 0px;
+                margin: 5px 10px;
+                font-size: 17px;
+                color: grey;
+                font-weight: 600;
+            }
+        }
+        .btn-container{
+            .add-btn{
+                border: 1px solid black;
+                float: right;
+                margin: 5px 10px;
+                background-color: #0d6efd;
+                color: white;
+                border: none;
+                border-radius: 3px;
+                font-size: 15px;
+                padding: 4px 9px;
+            }
+        }
+    }
+    .content{
+        .table-container{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 0px 10px;
+            table{
+                thead{
+                    tr{
+                        th{
+                            text-align: center;
+                        }
+                    }
+                }
+                tbody{
+                    tr{
+                        td{
+                            text-align: center;
+                            &:last-child{
+                                text-align: center;
+                            }
+                            svg{
+                                margin: 0px 5px;
+                                color: grey;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+     
+    }
+}
+.addUser_Modal, .updateUser_Modal{
+    .modal-dialog {
+        .modal-content {
+            border: none;
+            margin-top: 5rem;
+
+            .modal-header {
+                background-color: #0d6efd;
+                font-weight: 600;
+                color: white;
+                padding: 8px 18px 4px 18px;
+                h1{
+                    font-size: 16px !important;
+                    width: 93%;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+                .btn-close{
+                    margin: 0px 0px 3px 0px;
+                    font-size: 17px;
+                    padding: 0px;
+                }
+            }
+
+            .modal-body {
+                margin-top: 6px;
+                padding-bottom: 7px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .filter-hr {
+                    color: #7030a0;
+                    opacity: 0.5;
+                    margin: 15px 0px 0px 0px;
+                }
+                .form-group{
+                    display: flex;
+                    justify-content: center;
+                    width: 97%;
+                    margin: 2px 0px;
+                    label{
+                        width: 50%;
+                        font-weight: 600;
+                    }
+                }
+                .btn-container{
+                    text-align: center;
+                    margin-top: 15px;
+                    margin-bottom: 10px;
+                    width: 90%;
+                    display: flex;
+                    justify-content: flex-end;
+                    float: right;
+                    .add-btn {
+                        background-color: #0d6efd;
+                        color: white;
+                        font-size: 14px;
+                        border-radius: 4px;
+                        width: 66px;
+                        text-align: center;
+                        border: none;
+                        padding: 3px 10px 5px 10px;
+                    }
+                    .close-btn {
+                        font-family: "IntelOne Display AR Medium";
+                        background-color: #7e207a;
+                        padding: 2px 8px;
+                        color: white;
+                        font-size: 13px;
+                        border-radius: 0px;
+                        box-shadow: #ff7fff 3px 3px 6px 0px inset, #350d33 -3px -3px 6px 1px inset;
+                        width: 80px;
+                        margin: 0px 0px 3px 8px;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .modal-footer {
+                padding: 7px;
+               
+            }
+        }
+    }
+}

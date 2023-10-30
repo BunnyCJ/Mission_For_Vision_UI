@@ -1,0 +1,61 @@
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #0d6efd;
+    justify-content: center;
+    .top-field{
+        p{
+            font-size: 25px;
+            font-weight: 600;
+            color: white;
+        }
+    }    
+    .forms{
+        width: 30%;
+        background-color: white;
+        padding: 40px 30px 30px 30px;
+        border-radius: 11px;
+        display: flex;
+        flex-direction: column;
+        .form-group{
+            display: flex;
+            width: 100%;
+            margin-bottom: 10px;
+            label{
+                width: 30%;
+            }
+            .form-control{
+                width: 70%;
+            }
+            .form-checkbox{
+                margin: 0px 5px;
+                height: 27px;
+            }
+        }
+        .btn-container{
+            width: 100%;
+            .login-btn{
+                background-color: #0d6efd;
+                color: white;
+                font-size: 14px;
+                border-radius: 4px;
+                width: 66px;
+                float: right;
+                text-align: center;
+                border: none;
+                padding: 3px 10px 5px 10px;
+            }
+        }
+        .links{
+            width: 100%;
+            a{
+                color: blue;
+            }
+        }
+    }
+}
+::ng-deep .toast-warning {
+    background-color: #7030A0 !important;
+}

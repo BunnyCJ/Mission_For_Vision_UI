@@ -1,0 +1,147 @@
+.header{
+    margin: 0px;
+    // padding: 15px 0px;
+    background-color: #0d6efd;
+    top: 0px;
+    position: sticky;
+    z-index: 100;
+    p{
+        font-size: 25px;
+        margin: 0px;
+        color: white;
+        margin-left: 10px;
+    }
+    .navbar{
+        .navbar-brand{
+            font-size: 15px;
+            margin-left: 10px;
+            color: white;
+            word-spacing: 5px;
+        }
+    }
+    .navbar-toggler{
+        padding: 1px;
+        border: none;
+        svg:focus{
+            border: none;
+        }
+    }
+    .navbar-toggler:focus{
+        border: none;
+    }
+}
+.navbar-nav {
+    list-style: none;
+    margin-left: 0px;
+    width: 100%;
+    justify-content: flex-end;
+
+    .nav-item {
+        margin: 0px 18px 0px 7px;
+        a{
+            padding: 3px 4px;
+            // color: white;
+        }
+
+        // .dropdown-menu {
+        //     padding: 0px;
+        //     margin-top: -2px;
+        //     border-radius: 0;
+        //     border: none;
+        //     box-shadow: 1px 4px 5px rgb(0 0 0 / 18%);
+        //     animation: bottomToTop 0.35s ease-in-out;
+        //     animation-fill-mode: forwards;
+
+        //     .dropdown-item {
+        //         background-color:white;
+        //         color: black;
+        //         padding: 4px 16px;
+        //     }
+        //     .dropdown-item:hover{
+        //         background-color: #0d6efd;
+        //         color: white;
+        //     }
+        // }
+            @keyframes bottomToTop {
+                0% {
+                  top: 200%;
+                  opacity: 0;
+                }
+                100% {
+                  top: 100%;
+                  opacity: 1;
+                }
+              }
+       
+
+    }
+    .profile{
+        display: flex;
+        align-items: center;
+        span{
+            color: white;
+            margin-right: 4px;
+        }
+        a{
+            img{
+                width: 22px;
+                border-radius: 10px;
+            }
+        }
+        .profile-details{
+            top: 43px;
+            position: absolute;
+            z-index: 10;
+            right: 21px;
+            background-color: antiquewhite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 5px;
+            box-shadow: 1px 1px 6px 1px #a09898;
+            padding: 10px;
+            .form-group{
+                display: flex;
+                flex-direction: column;
+                img{
+                    width: 56px;
+                    border-radius: 25px;
+                }
+                .userName{
+                    font-weight: bold;
+                }
+            }
+            .top-field{
+                align-items: center;
+            }
+            hr{
+                color: black;
+                opacity: 1;
+                border: 1px solid black;
+                border-style: dotted;
+                width: 100%;
+                margin: 5px 0px;
+            }
+        }
+    }
+    .logout{
+        width: 100%;
+        a{
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+    
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 13.5px;
+    font-weight: 600;
+
+    // font-family: "IntelOne Display AR Medium";
+}

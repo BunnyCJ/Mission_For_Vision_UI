@@ -1,0 +1,64 @@
+<div class="login">
+    <div class="top-field">
+        <p>Mission for Vision</p>
+    </div>
+    <div class="forms" *ngIf="isLogin">
+        <div class="form-group">
+            <label for="userName">Username : </label>
+            <input type="text" id="userName" class="form-control" placeholder="Enter username" [(ngModel)]="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password : </label>
+            <input type="text" id="password" class="form-control" placeholder="Enter password" [(ngModel)]="password">
+        </div>
+        <div class="btn-container">
+            <button class="login-btn secondary-btn" (click)="onLogin()">Login</button>
+        </div>
+        <div class="links">
+            <!-- <p class="forgot-password"><a>Forgot password ?</a></p> -->
+            <p class="Register">New user ? <a (click)="newUser()">Register here</a></p>
+        </div>
+    </div>
+    <!-- register form -->
+    <div class="forms" *ngIf="isRegister">
+        <div class="form-group">
+            <label for="name">Name : </label>
+            <input type="text" id="name" class="form-control" placeholder="Enter name" [(ngModel)]="name">
+        </div>
+        <div class="form-group">
+            <label for="userId">User ID : </label>
+            <input type="text" id="userId" class="form-control" placeholder="Enter User ID" [(ngModel)]="userId">
+        </div>
+        <div class="form-group">
+            <label for="email">Email : </label>
+            <input type="email" id="email" class="form-control" placeholder="abc@email.com" [(ngModel)]="email">
+        </div>
+        <div class="form-group">
+            <label for="userType">Type : </label>
+            <input type="checkbox" id="userType" class="form-checkbox" [(ngModel)]="isStudent" (ngModelChange)="typeStudent()">Student
+            <input type="checkbox" id="userType" class="form-checkbox" [(ngModel)]="isTeacher" (ngModelChange)="typeTeacher()">Teacher
+        </div>
+        <div class="form-group" *ngIf="isStudent">
+            <label for="regNo">Register No : </label>
+            <input type="number" id="regNo" class="form-control" placeholder="ex : 767565" [(ngModel)]="regNo">
+        </div>
+        <div class="form-group" *ngIf="isStudent">
+            <label for="department">Department : </label>
+            <input type="department" id="department" class="form-control" placeholder="ex : commerce" [(ngModel)]="department">
+        </div>
+        <div class="form-group">
+            <label for="password">Password : </label>
+            <input type="text" id="password" class="form-control" placeholder="Enter password" [(ngModel)]="password">
+        </div>
+
+        <div class="form-group">
+            <label for="conf-password">Confirm Password : </label>
+            <input type="text" id="conf-password" class="form-control" placeholder="Re enter password" [(ngModel)]="confirmPassword">
+    </div>
+    <div class="btn-container">
+        <button class="login-btn secondary-btn" (click)="submitForm()">Register</button>
+    </div>
+    <div class="links">
+        <p class="Register">Existing user ? <a (click)="ExistingUser()">Login here</a></p>
+    </div>
+</div>

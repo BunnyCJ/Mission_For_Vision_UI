@@ -1,0 +1,150 @@
+<div class="student">
+    <div class="top-field">
+        <div class="breadcrumbs">
+            <p>Student</p>
+        </div>
+        <div class="btn-container">
+            <button class="add-btn" data-bs-toggle="modal" data-bs-target=".addStudent_Modal">Add New Student</button>
+            <button class="back-btn" (click)="navigateToDashboard()">Back</button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="table-container">
+            <table class="table-bordered table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Reg No</th>
+                        <th>Department</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of studentList; let i = index">
+                        <td>{{i+1}}.</td>
+                        <td>{{data?.name}}</td>
+                        <td>{{data?.regNo}}</td>
+                        <td>{{data?.department}}</td>
+                        <td>
+                            <a data-bs-toggle="modal" data-bs-target=".updateStudent_Modal" (click)="openuUpdateStudentModal(data)"> <i class="fa-solid fa-pen"></i></a>
+                            <a data-bs-toggle="modal" data-bs-target=".deleteStudent_Modal" (click)="openDeleteStudentModal(data)"><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      
+    </div>
+</div>
+<div class="modal fade addStudent_Modal" id="addStudent_Modal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true" data-bs-autohide="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="testModalLabel">Add Student
+                </h1>
+                <button type="button" class="btn-close btn-close-white shadow-none " data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="name">Name : </label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter name" [(ngModel)]="name">
+                </div>
+                <div class="form-group">
+                    <label for="userId">User ID : </label>
+                    <input type="text" id="userId" class="form-control" placeholder="Enter User ID" [(ngModel)]="userId">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email : </label>
+                    <input type="email" id="email" class="form-control" placeholder="abc@email.com" [(ngModel)]="email">
+                </div>
+                <div class="form-group">
+                    <label for="reg_no">Reg. Number</label>
+                    <input type="number" class="form-control shadow-none" id="reg_no" placeholder="Enter registration number" [(ngModel)]="regNo">
+                </div>        
+                <div class="form-group">
+                    <label for="department">Department : </label>
+                    <input type="department" id="department" class="form-control" placeholder="ex : commerce" [(ngModel)]="department">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password : </label>
+                    <input type="text" id="password" class="form-control" placeholder="Enter password" [(ngModel)]="password">
+                </div>
+        
+                <div class="form-group">
+                    <label for="conf-password">Confirm Password : </label>
+                    <input type="text" id="conf-password" class="form-control" placeholder="Re enter password" [(ngModel)]="confirmPassword">
+                </div>
+             <div class="btn-container">
+                <button class="add-btn" (click)="submitForm()">Add</button>
+             </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade updateStudent_Modal" id="updateStudent_Modal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true" data-bs-autohide="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="testModalLabel">Update Student
+                </h1>
+                <button type="button" class="btn-close btn-close-white shadow-none " data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name">Name : </label>
+                        <input type="text" id="name" class="form-control" placeholder="Enter name" [(ngModel)]="updateStudentName">
+                    </div>
+                    <div class="form-group">
+                        <label for="userId">User ID : </label>
+                        <input type="text" id="userId" class="form-control" placeholder="Enter User ID" [(ngModel)]="updateStudentUserId">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email : </label>
+                        <input type="email" id="email" class="form-control" placeholder="abc@email.com" [(ngModel)]="updateStudentEmail">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_no">Reg. Number</label>
+                        <input type="number" class="form-control shadow-none" id="reg_no" placeholder="Enter registration number" [(ngModel)]="updateStudentRegNo">
+                    </div>        
+                    <div class="form-group">
+                        <label for="department">Department : </label>
+                        <input type="department" id="department" class="form-control" placeholder="ex : commerce" [(ngModel)]="updateStudentDepartment">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password : </label>
+                        <input type="text" id="password" class="form-control" placeholder="Enter password" [(ngModel)]="updateStudentPasword">
+                    </div>
+                </div>
+             <div class="btn-container">
+                <button class="add-btn" (click)="updateStudent()">Update</button>
+             </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade deleteStudent_Modal" id="deleteStudent_Modal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true" data-bs-autohide="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="testModalLabel">Delete Student
+                </h1>
+                <button type="button" class="btn-close btn-close-white shadow-none " data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <p>Are you sure want to delete this student?</p>
+             <div class="btn-container">
+                <button class="delete-btn" (click)="deleteStudent()" data-bs-dismiss="modal">Yes, Delete</button>
+                <button class="cancel-btn" data-bs-dismiss="modal">Cancel</button>
+             </div>
+
+            </div>
+        </div>
+    </div>
+</div>

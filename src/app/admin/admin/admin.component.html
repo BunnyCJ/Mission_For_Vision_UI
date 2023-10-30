@@ -1,0 +1,148 @@
+<div class="admin">
+    <div class="top-field">
+        <div class="breadcrumbs">
+            <p>Tests</p>
+        </div>
+        <div class="btn-container">
+            <button class="back-btn" (click)="navigateToDashboard()">Back</button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="table-container">
+                <table class="table-bordered table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Reg No</th>
+                            <th>Student Name</th>
+                            <th>Test Name</th>
+                            <th>Subject</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of answeredTestData; let i = index">
+                            <td>{{i+1}}.</td>
+                            <td>{{data.regNo}}</td>
+                            <td>{{data.answeredBy}}</td>
+                            <td>{{data.testName}}</td>
+                            <td>{{data.subject}}</td>
+                            <td><a data-bs-toggle="modal" data-bs-target=".reviewTest_Modal" (click)="openUpdateAnswerModal(data)">VIEW</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+</div>
+<!-- 
+<div class="modal fade addQuestion_Modal" id="addQuestion_Modal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true" data-bs-autohide="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="testModalLabel">Add Test
+                </h1>
+                <button type="button" class="btn-close btn-close-white shadow-none " data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="testName">Test Name</label>
+                    <input type="search" class="form-control shadow-none" id="testName" [(ngModel)]="testName" placeholder="Enter subject">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="search" class="form-control shadow-none" id="subject" [(ngModel)]="subject" placeholder="Enter subject">
+                </div>
+                <div class="form-group">
+                    <label for="question">Question</label>
+                    <textarea type="search" class="form-control shadow-none" id="question" [(ngModel)]="question" placeholder="Enter question"></textarea>
+                </div>
+             <div class="btn-container">
+                <button class="add-btn" (click)="createQuestion()">Add</button>
+             </div>
+
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- 
+<div class="modal fade updateQuestion_Modal" id="updateQuestion_Modal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true" data-bs-autohide="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="testModalLabel">Update Test
+                </h1>
+                <button type="button" class="btn-close btn-close-white shadow-none " data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="search" class="form-control shadow-none" id="subject" [(ngModel)]="updatedSubject" placeholder="Enter subject">
+                </div>
+                <div class="form-group">
+                    <label for="question">Question</label>
+                    <textarea type="search" class="form-control shadow-none" id="question" [(ngModel)]="updatedQuestion" placeholder="Enter question"></textarea>
+                </div>
+             <div class="btn-container">
+                <button class="add-btn" (click)="updateQuestion()">Update</button>
+             </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade deleteQuestion_Modal" id="deleteQuestion_Modal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true" data-bs-autohide="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="testModalLabel">Delete Test
+                </h1>
+                <button type="button" class="btn-close btn-close-white shadow-none " data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <p>Are you sure want to delete this Test?</p>
+             <div class="btn-container">
+                <button class="delete-btn">Yes, Delete</button>
+                <button class="cancel-btn">Cancel</button>
+             </div>
+
+            </div>
+        </div>
+    </div>
+</div> -->
+
+  <!-- Number of students Modal -->
+  <div class="modal fade reviewTest_Modal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true" data-bs-autohide="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p>Review Test</p>
+                <button type="button" class="btn-close btn-close-white shadow-none " data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <div class="form">
+                      <div class="header">
+                        <p>{{updateAnswerSheet?.subject}}</p>
+                      </div>
+                      <div class="form-group" *ngFor="let qn of updateAnswerSheetTest; let i = index">
+                        <label for="qn">{{i+1}}. &nbsp; {{qn.question}}</label>
+                        <textarea name="answer" id="qn" cols="30" rows="2" class="form-control">{{qn.answer}}</textarea>
+                      </div>
+                      <div class="form-group">
+                        <label for="score">Score</label>
+                        <input type="number" class="score form-control shadow-none" [(ngModel)]="testScore">
+                      </div>
+                      <div class="btn-container">
+                        <button class="submit-btn" (click)="submitTestReview()">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
